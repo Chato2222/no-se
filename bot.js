@@ -1,3 +1,4 @@
+// host es el servidor a conectar, port pos el puerto, version; esta en false para que pos al entrar no necesite una version en especifico es como que si se adaptara y la contraseña, es cuando la cuenta entra y escribe /login <>
 const mineflayer = require('mineflayer')
 const { pathfinder, Movements, goals } = require('mineflayer-pathfinder')
 const { Vec3 } = require('vec3')
@@ -6,17 +7,17 @@ const readline = require('readline')
 const path = require('path')
 
 const CONFIG = {
-  host: 'infection.fun',
-  port: 25565,
-  username: 'sikigalvezBOT',
+  host: 'editable',
+  port: editable,
+  username: 'editable',
   version: false,
   auth: 'offline',
 
-  password: 'aeiouarlo',
+  password: 'editable',
   loginDelayMs: 3000,
   pathfinderDelayMs: 3000,
 
-  admins: ['sikigalvez', 'shzuulov'],
+  admins: ['editable', 'editable'],
 
   banFile: path.join(__dirname, 'baneados.txt'),
 
@@ -65,7 +66,7 @@ const CONFIG = {
   queueFullMessage: (player) => `/msg ${player} La cola está llena. Intenta de nuevo en un rato.`,
   cooldownMessage: (player, secs) => `/msg ${player} Espera ${secs} s para pedir otro kit.`,
   turnMessage: (player, kit) => `/msg ${player} Es tu turno, voy por tu kit ${kit}.`,
-
+// los kits son editables, tal como la lista de contenido inapropiado #christian eres de las personas mas geniales que vi en mi vdida
   banMessage: (player) => `/msg ${player} Quedaste baneado del bot por contenido inapropiado.`,
   inappropriateWords: [
     'porno', 'porn', 'pornhub', 'pornografia', 'xxx', 'hentai', 'onlyfans',
