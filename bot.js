@@ -1,4 +1,4 @@
-// host es el servidor a conectar, port pos el puerto, version; esta en false para que pos al entrar no necesite una version en especifico es como que si se adaptara y la contraseña, es cuando la cuenta entra y escribe /login <>
+// Host es el servidor al que se conectará, port es el puerto utilizado para establecer la conexión, version está en false para que no se requiera una versión específica de Minecraft y la contraseña es la que la cuenta utilizará al entrar al servidor mediante el comando /login <contraseña>.
 const mineflayer = require('mineflayer')
 const { pathfinder, Movements, goals } = require('mineflayer-pathfinder')
 const { Vec3 } = require('vec3')
@@ -66,7 +66,7 @@ const CONFIG = {
   queueFullMessage: (player) => `/msg ${player} La cola está llena. Intenta de nuevo en un rato.`,
   cooldownMessage: (player, secs) => `/msg ${player} Espera ${secs} s para pedir otro kit.`,
   turnMessage: (player, kit) => `/msg ${player} Es tu turno, voy por tu kit ${kit}.`,
-// los kits son editables, tal como la lista de contenido inapropiado #christian eres de las personas mas geniales que vi en mi vdida
+// Los kits son editables, al igual que la lista de contenido inapropiado. #Christian, eres de las personas más geniales que he conocido en mi vida.
   banMessage: (player) => `/msg ${player} Quedaste baneado del bot por contenido inapropiado.`,
   inappropriateWords: [
     'porno', 'porn', 'pornhub', 'pornografia', 'xxx', 'hentai', 'onlyfans',
@@ -93,22 +93,24 @@ const CONFIG = {
     stopOnBan: true
   },
 
-  base: { x: -995794.5, y: -49.0, z: -992696.0, radius: 50 },
+  base: {editable # # #, radius: 50 },
 
   bed: null,
 
-  entry: { x: -22.41, y: 92.0, z: 57.41, yaw: -0.22, pitch: 12.18 },
+  entry: { x: -0, y: 0, z: ---, yaw: -0, pitch: 0 },
   attackOnEntry: true,
   attackIgnoreAdmins: false,
 
+  // los kits son editables OBVIO
+
   kits: {
-    refill: { stand: { x: -995795.12, y: -49.0, z: -992696.11, yaw: 271.52, pitch: 43.94 } },
-    cpvp: { stand: { x: -995794.24, y: -49.0, z: -992698.25, yaw: 272.12, pitch: 48.04 } },
-    apvp: { stand: { x: -995794.24, y: -49.0, z: -992693.5, yaw: 271.0, pitch: 42.02 } },
-    suministros: { stand: { x: -995795.59, y: -49.0, z: -992699.63, yaw: 274.51, pitch: 30.79 } },
-    maparts: { stand: { x: -995794.99, y: -49.0, z: -992702.26, yaw: 266.04, pitch: 34.37 } },
-    redstone: { stand: { x: -995795.24, y: -49.0, z: -992706.56, yaw: 271.4, pitch: 26.76 } },
-    perceoo: { stand: { x: -995795.77, y: -49.0, z: -992688.79, yaw: 260.21, pitch: 29.12 } }
+    refill: { stand: { editable } },
+    cpvp: { stand: { editable } },
+    apvp: { stand: { editable } },
+    suministros: { stand: { editable } },
+    maparts: { stand: { editable } },
+    redstone: { stand: { editable } },
+    perceoo: { stand: { editable } }
   }
 }
 
@@ -964,7 +966,7 @@ async function goToStand(kit) {
       dist = distanceToStand(kit)
     }
     if (dist > CONFIG.maxWalkDistance) {
-      console.log(`[error] el bot está a ${Math.round(dist)} bloques de los cofres. Ponlo cerca de la base (cama/spawn) o configura queue.returnCommand`)
+      console.log(`[error] el bot está a ${Math.round(dist)} bloques de los cofres. Ponlo cerca de la cama`)
       throw new Error('el bot está muy lejos de los cofres, avisa a un admin')
     }
   }
